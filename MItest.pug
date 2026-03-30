@@ -1,0 +1,97 @@
+doctype html
+html.no-js(lang='')
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='x-ua-compatible' content='ie=edge')
+    title Jersey afterdownload
+    link(rel='preconnect' href='https://fonts.gstatic.com')
+    link(href='https://fonts.cdnfonts.com/css/franklin-gothic' rel='stylesheet')
+    link(href='https://fonts.googleapis.com/css2?family=Hind:wght@700&display=swap' rel='stylesheet')
+    style.
+      @font-face {
+        font-family: 'alinea-incense-bold';
+        src: url('https://beta-mi.sportz.io/static-assets/fonts/jersey/alinea-incense-bold.eot');
+        src: url('https://beta-mi.sportz.io/static-assets/fonts/jersey/alinea-incense-bold.eot?#iefix') format('embedded-opentype'),
+            url('https://beta-mi.sportz.io/static-assets/fonts/jersey/alinea-incense-bold.woff2') format('woff2'),
+            url('https://beta-mi.sportz.io/static-assets/fonts/jersey/alinea-incense-bold.woff') format('woff'),
+            url('https://beta-mi.sportz.io/static-assets/fonts/jersey/alinea-incense-bold.ttf') format('truetype'),
+            url('https://beta-mi.sportz.io/static-assets/fonts/jersey/alinea-incense-bold.svg#AlineaIncenseBold') format('svg');
+      }
+      body,
+      html {
+      padding: 0;
+      margin: 0;
+      }
+      .mi-jersey-afterdownload {
+      text-align: center;
+      position: relative;
+      background-image: url('https://raw.githubusercontent.com/arindamsamanta140/payloads/refs/heads/main/test.svg');
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+      width: 600px;
+      height: 100vh;
+      margin: auto;
+      }
+      .mi-jersey-afterdownload .container {
+      height: 100%;
+      }
+      .mi-jersey-afterdownload .layout-wrappers {
+      height: 100%;
+      }
+      .mi-jersey-afterdownload .content-box {
+      height: 100%;
+      display: table;
+      width: 100%;
+      }
+      .mi-jersey-afterdownload .jersey-detail {
+      position: relative;
+      z-index: 1;
+      padding-bottom: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: calc(100dvh - 80px);
+      flex-direction: column;
+      margin-top: 285px;
+      }
+      .jersey-img {
+      background-position: top center;
+      background-repeat: no-repeat;
+      position: absolute;
+      top: 80px;
+      left: 0;
+      width: 100%;
+      height: 600px;
+      background-size: 85%;
+      }
+      .jersey-img img {
+      padding-bottom: 20px;
+      }
+      .jersey-detail .number {
+      font-size: 85px;
+      font-family: 'Franklin Gothic', sans-serif;
+      color: #d1ab3e;
+      text-shadow: none;
+      display: block;
+      text-align: center;
+      }
+      .jersey-detail .name {
+      font-size: 24px;
+       font-family: "alinea-incense-bold", sans-serif; 
+      display: block;
+      text-align: center;
+      margin-left: -3px;
+      color: #d1ab3e;
+      text-shadow: none;
+      text-transform: uppercase;
+      }
+  body
+    .waf-component.mi-jersey-afterdownload
+      .container
+        .layout-wrappers
+          .content-box
+            .jersey-img(style="background-image: url('https://github.com/arindamsamanta140/payloads/blob/main/panda.jpg')")
+            .jersey-detail
+              span.number #{payload.jerseyNumber}
+              span.name #{payload.playerName}
+
