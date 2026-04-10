@@ -1,0 +1,1 @@
+<svg xmlns="http://www.w3.org/2000/svg"><animate onbegin="alert(1)" attributeName="x" from="0" to="0" dur="1s" begin="0s"/></svg>
