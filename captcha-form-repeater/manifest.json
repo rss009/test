@@ -1,0 +1,14 @@
+{
+  "manifest_version": 3,
+  "name": "Captcha Form Repeater",
+  "version": "0.1.0",
+  "description": "Repeats a captcha-protected ASP.NET WebForms POST with a fresh session, VIEWSTATE and EVENTVALIDATION each time. For testing your own applications.",
+  "permissions": ["cookies"],
+  "host_permissions": ["<all_urls>"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "Open Captcha Form Repeater"
+  }
+}

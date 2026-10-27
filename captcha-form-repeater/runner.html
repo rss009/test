@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Captcha Form Repeater</title>
+  <style>
+    body { font-family: system-ui, sans-serif; margin: 16px; max-width: 900px; }
+    label { display: block; margin-top: 10px; font-size: 13px; color: #333; }
+    input[type=text], input[type=number], textarea {
+      width: 100%; box-sizing: border-box; padding: 6px; font: inherit; font-size: 13px;
+    }
+    textarea { height: 70px; font-family: monospace; }
+    .row { display: flex; gap: 12px; }
+    .row > div { flex: 1; }
+    .buttons { margin-top: 12px; display: flex; gap: 8px; }
+    button { padding: 6px 14px; font: inherit; cursor: pointer; }
+    #captchaImg { border: 1px solid #ccc; display: block; margin-top: 6px; min-height: 40px; min-width: 120px; background: #fafafa; }
+    #status { margin-top: 14px; font-weight: 600; }
+    #log {
+      margin-top: 8px; height: 260px; overflow: auto; background: #111; color: #ddd;
+      font: 12px monospace; padding: 8px; white-space: pre-wrap;
+    }
+    .hint { font-size: 12px; color: #666; margin: 4px 0 0; }
+  </style>
+</head>
+<body>
+  <h2>Captcha Form Repeater</h2>
+  <p class="hint">For testing applications you own or are authorized to test. Each iteration clears the
+    cookies for the target host, so it also logs out of that site in this browser.</p>
+
+  <label>Form page URL (GET, provides VIEWSTATE / EVENTVALIDATION)
+    <input type="text" id="pageUrl" placeholder="https://examplelab.com/Form.aspx">
+  </label>
+
+  <label>Captcha URL (optional; blank = use the captcha &lt;img&gt; found on the page)
+    <input type="text" id="captchaUrl" placeholder="https://examplelab.com/GenerateCaptcha.aspx?...">
+  </label>
+
+  <div class="row">
+    <div>
+      <label>Captcha field name
+        <input type="text" id="captchaField" value="txtCaptcha">
+      </label>
+    </div>
+    <div>
+      <label>Repeat count
+        <input type="number" id="count" value="5" min="1">
+      </label>
+    </div>
+    <div>
+      <label>Delay between iterations (ms)
+        <input type="number" id="delay" value="1000" min="0">
+      </label>
+    </div>
+  </div>
+
+  <label>Extra form fields, one <code>name=value</code> per line (e.g. the submit button)
+    <textarea id="extra" placeholder="btnSubmit=Submit"></textarea>
+  </label>
+
+  <label>Success marker (optional; text to look for in the response)
+    <input type="text" id="marker" placeholder="Welcome">
+  </label>
+
+  <div class="buttons">
+    <button id="start">Start</button>
+    <button id="stop" disabled>Stop</button>
+  </div>
+
+  <div id="status">Idle</div>
+
+  <label>Captcha for the current iteration</label>
+  <img id="captchaImg" alt="captcha">
+
+  <div class="row">
+    <div>
+      <input type="text" id="answer" placeholder="Type the captcha you read" disabled>
+    </div>
+    <div style="flex: 0 0 120px;">
+      <button id="submit" disabled style="width: 100%;">Submit</button>
+    </div>
+  </div>
+
+  <label>Log</label>
+  <div id="log"></div>
+
+  <script src="runner.js"></script>
+</body>
+</html>
